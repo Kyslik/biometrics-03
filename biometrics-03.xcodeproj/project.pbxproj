@@ -28,6 +28,7 @@
 		50DF7E481CB4520000E04255 /* biometrics-03 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "biometrics-03"; sourceTree = BUILT_PRODUCTS_DIR; };
 		50DF7E4B1CB4520000E04255 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		50DF7E521CB458C400E04255 /* data */ = {isa = PBXFileReference; lastKnownFileType = folder; name = data; path = "biometrics-3/data"; sourceTree = "<group>"; };
+		50DF7E541CB4689600E04255 /* shift.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = shift.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +62,7 @@
 		50DF7E4A1CB4520000E04255 /* biometrics-3 */ = {
 			isa = PBXGroup;
 			children = (
+				50DF7E541CB4689600E04255 /* shift.hpp */,
 				50DF7E4B1CB4520000E04255 /* main.cpp */,
 			);
 			path = "biometrics-3";
@@ -213,7 +215,12 @@
 			buildSettings = {
 				HEADER_SEARCH_PATHS = /usr/local/include;
 				LIBRARY_SEARCH_PATHS = /usr/local/lib;
-				OTHER_LDFLAGS = "-lopencv_core";
+				OTHER_LDFLAGS = (
+					"-lopencv_core",
+					"-lopencv_highgui",
+					"-lopencv_imgcodecs",
+					"-lopencv_imgproc",
+				);
 				PRODUCT_NAME = "biometrics-03";
 			};
 			name = Debug;
@@ -223,7 +230,12 @@
 			buildSettings = {
 				HEADER_SEARCH_PATHS = /usr/local/include;
 				LIBRARY_SEARCH_PATHS = /usr/local/lib;
-				OTHER_LDFLAGS = "-lopencv_core";
+				OTHER_LDFLAGS = (
+					"-lopencv_core",
+					"-lopencv_highgui",
+					"-lopencv_imgcodecs",
+					"-lopencv_imgproc",
+				);
 				PRODUCT_NAME = "biometrics-03";
 			};
 			name = Release;
