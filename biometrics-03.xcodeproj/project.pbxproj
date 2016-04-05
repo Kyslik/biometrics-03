@@ -211,6 +211,9 @@
 		50DF7E501CB4520000E04255 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				HEADER_SEARCH_PATHS = /usr/local/include;
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
+				OTHER_LDFLAGS = "-lopencv_core";
 				PRODUCT_NAME = "biometrics-03";
 			};
 			name = Debug;
@@ -218,6 +221,9 @@
 		50DF7E511CB4520000E04255 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				HEADER_SEARCH_PATHS = /usr/local/include;
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
+				OTHER_LDFLAGS = "-lopencv_core";
 				PRODUCT_NAME = "biometrics-03";
 			};
 			name = Release;
