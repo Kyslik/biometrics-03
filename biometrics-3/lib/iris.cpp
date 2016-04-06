@@ -14,7 +14,7 @@ namespace Iris
     {
         using cv::imread;
         using cv::IMREAD_UNCHANGED;
-        
+
         iris = imread(file.getIris(), IMREAD_UNCHANGED);
         bin_iris = imread(file.getBinIris(), IMREAD_UNCHANGED);
         mask = imread(file.getMask(), IMREAD_UNCHANGED);
