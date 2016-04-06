@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		504D6C9C1CB5749500AF78D6 /* iris_file.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 504D6C9A1CB5749500AF78D6 /* iris_file.cpp */; };
 		50DF7E4C1CB4520000E04255 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 50DF7E4B1CB4520000E04255 /* main.cpp */; };
 		50DF7E531CB458E300E04255 /* data in CopyFiles */ = {isa = PBXBuildFile; fileRef = 50DF7E521CB458C400E04255 /* data */; };
+		50DF7E5B1CB4FF3600E04255 /* iris.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 50DF7E591CB4FF3600E04255 /* iris.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,10 +27,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		504D6C9A1CB5749500AF78D6 /* iris_file.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = iris_file.cpp; sourceTree = "<group>"; };
+		504D6C9B1CB5749500AF78D6 /* iris_file.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = iris_file.hpp; sourceTree = "<group>"; };
 		50DF7E481CB4520000E04255 /* biometrics-03 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "biometrics-03"; sourceTree = BUILT_PRODUCTS_DIR; };
 		50DF7E4B1CB4520000E04255 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		50DF7E521CB458C400E04255 /* data */ = {isa = PBXFileReference; lastKnownFileType = folder; name = data; path = "biometrics-3/data"; sourceTree = "<group>"; };
-		50DF7E541CB4689600E04255 /* shift.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = shift.hpp; sourceTree = "<group>"; };
+		50DF7E541CB4689600E04255 /* shift.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = shift.hpp; path = ../shift.hpp; sourceTree = "<group>"; };
+		50DF7E591CB4FF3600E04255 /* iris.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = iris.cpp; sourceTree = "<group>"; };
+		50DF7E5A1CB4FF3600E04255 /* iris.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = iris.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,10 +68,22 @@
 		50DF7E4A1CB4520000E04255 /* biometrics-3 */ = {
 			isa = PBXGroup;
 			children = (
-				50DF7E541CB4689600E04255 /* shift.hpp */,
+				50DF7E581CB4FF3600E04255 /* lib */,
 				50DF7E4B1CB4520000E04255 /* main.cpp */,
 			);
 			path = "biometrics-3";
+			sourceTree = "<group>";
+		};
+		50DF7E581CB4FF3600E04255 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				50DF7E541CB4689600E04255 /* shift.hpp */,
+				50DF7E591CB4FF3600E04255 /* iris.cpp */,
+				50DF7E5A1CB4FF3600E04255 /* iris.hpp */,
+				504D6C9A1CB5749500AF78D6 /* iris_file.cpp */,
+				504D6C9B1CB5749500AF78D6 /* iris_file.hpp */,
+			);
+			path = lib;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -124,7 +142,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50DF7E5B1CB4FF3600E04255 /* iris.cpp in Sources */,
 				50DF7E4C1CB4520000E04255 /* main.cpp in Sources */,
+				504D6C9C1CB5749500AF78D6 /* iris_file.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,6 +279,7 @@
 				50DF7E511CB4520000E04255 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
