@@ -11,8 +11,6 @@
 
 #include <iostream>
 #include <opencv2/opencv.hpp>
-#include <opencv2/imgcodecs.hpp>
-#include <opencv2/highgui/highgui.hpp>
 
 #include "iris_file.hpp"
 
@@ -22,8 +20,18 @@ namespace Iris
     using Iris::File;
 
     struct Iris {
-        Mat iris, bin_iris, mask;
+        Iris(){};
         Iris(File &file);
+        
+        inline Mat getIris() {return iris_;}
+        inline Mat getBinIris() {return bin_iris_;}
+        inline Mat getMask() {return mask_;}
+        void shift(int shift_by = 1);
+    private:
+        Mat iris_, bin_iris_, mask_;
+
+        void shiftMask(int shift_by = 1);
+        void shiftBinIris(int shift_by = 1);
     };
 }
 
