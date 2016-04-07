@@ -11,6 +11,7 @@
 #include <opencv2/opencv.hpp>
 
 #include "lib/iris_comparator.hpp"
+#include "lib/iris_group.hpp"
 
 const std::string kVersion = "1.0.0";
 
@@ -28,7 +29,7 @@ int main(int argc, const char * argv[])
     "{experiment e   || experiment number"
         "\n\t\t\t1 - compare pairs from one class"
         "\n\t\t\t2 - compare pairs from all classes}"
-    "{path p         || path to data (*.bmp files)}"
+    "{path p         | ./data | path to data (*.bmp files)}"
     ;
 
     cv::CommandLineParser parser(argc, argv, keys);
@@ -69,8 +70,11 @@ int main(int argc, const char * argv[])
         }
     }
 
+    Iris::Group group("./data/", 1);
+    group.compare();
     int experiment_no = parser.get<int>("experiment");
     experiment_no;
+
     if (!parser.check())
     {
         parser.printErrors();
