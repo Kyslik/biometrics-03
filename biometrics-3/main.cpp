@@ -23,11 +23,12 @@ int main(int argc, const char * argv[])
     const cv::String keys =
     "{help h usage ? || print this message }"
     "{compare c      || compare mode       }"
-    "{img f          || image to compare (provide image to eye ex: 001_1_1.bmp) }"
+    "{img f          || image to compare (ex: 001_1_1(_*).bmp) }"
     "{img-two s      || image2 to compare  }"
     "{experiment e   || experiment number"
         "\n\t\t\t1 - compare pairs from one class"
         "\n\t\t\t2 - compare pairs from all classes}"
+    "{path p         || path to data (*.bmp files)}"
     ;
 
     cv::CommandLineParser parser(argc, argv, keys);
@@ -58,9 +59,7 @@ int main(int argc, const char * argv[])
 
             Comparator comparator = Comparator(image_1, image_2);
             comparator.hammingDistance(80);
-            cout << comparator.getBestDistance() << endl;
             comparator.display();
-
             return 0;
         }
         else
@@ -70,27 +69,13 @@ int main(int argc, const char * argv[])
         }
     }
 
-//    int experiment_no = parser.get<int>("experiment");
-//
-//    if (!parser.check())
-//    {
-//        parser.printErrors();
-//        return 0;
-//    }
+    int experiment_no = parser.get<int>("experiment");
+    experiment_no;
+    if (!parser.check())
+    {
+        parser.printErrors();
+        return 0;
+    }
 
     return 0;
-
-//    Mat image, image2, image3;
-//    image = imread("./data/001_2_4_mask.bmp", IMREAD_UNCHANGED);
-//    image2 = imread("./data/004_2_2_mask.bmp", IMREAD_UNCHANGED);
-//
-//
-//
-//    namedWindow("i1", WINDOW_AUTOSIZE );
-//    imshow("i1", image);
-//    shift(image, image, Point(150, 0), BORDER_WRAP);
-//    namedWindow("i2", WINDOW_AUTOSIZE );
-//    imshow("i2", image);
-//    waitKey(0);
-//    return 0;
 }

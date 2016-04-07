@@ -58,21 +58,26 @@ namespace Iris
         i2_.shift(best_shift_);
         computeMask();
 
-        vector<Mat> vmat;
-        Mat concatenated, irises;
+        std::cout   << "Best Masked Hamming Distance: "
+                    << best_distance_ << std::endl
+                    << "Shifted by: " << best_shift_
+                    << " pixels" << std::endl;
 
-        cv::hconcat(i1_.getIris(), i2_.getIris(), irises);
+        vector<Mat> vmat;
+        Mat concatenated_bin, irises;
 
         vmat.push_back(i1_.getBinIris());
         vmat.push_back(i2_.getBinIris());
         vmat.push_back(mask_);
-        
-        cv::vconcat(vmat, concatenated);
+
+        cv::hconcat(i1_.getIris(), i2_.getIris(), irises);
+        cv::vconcat(vmat, concatenated_bin);
 
         namedWindow("Concatenated BinIris 1 - 2 & mask", WINDOW_AUTOSIZE);
-        imshow("Concatenated BinIris 1 - 2 & mask", concatenated);
+        imshow("Concatenated BinIris 1 - 2 & mask", concatenated_bin);
         namedWindow("Irises", WINDOW_AUTOSIZE);
         imshow("Irises", irises);
+
         waitKey(0);
     }
 }
