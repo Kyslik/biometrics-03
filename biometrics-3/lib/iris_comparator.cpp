@@ -25,7 +25,7 @@ namespace Iris
     int Comparator::calculateHammingDistance()
     {
         computeMask();
-        return cv::norm(i1_.getBinIris(), i2_.getBinIris(), cv::NORM_HAMMING, mask_);
+        return cv::countNonZero(((i1_.getBinIris() ^ i2_.getBinIris()) & ~mask_));
     }
 
     void Comparator::hammingDistance(int spread)
@@ -52,15 +52,27 @@ namespace Iris
         using cv::imshow;
         using cv::WINDOW_AUTOSIZE;
         using cv::waitKey;
+        using cv::vconcat;
+        using std::vector;
 
         i2_.shift(best_shift_);
         computeMask();
-        namedWindow("Image 1", WINDOW_AUTOSIZE);
-        imshow("Image 1", i1_.getBinIris());
-        namedWindow("Image 2", WINDOW_AUTOSIZE);
-        imshow("Image 2", i2_.getBinIris());
-        namedWindow("Mask", WINDOW_AUTOSIZE);
-        imshow("Mask", mask_);
+
+        vector<Mat> vmat;
+        Mat concatenated, irises;
+
+        cv::hconcat(i1_.getIris(), i2_.getIris(), irises);
+
+        vmat.push_back(i1_.getBinIris());
+        vmat.push_back(i2_.getBinIris());
+        vmat.push_back(mask_);
+        
+        cv::vconcat(vmat, concatenated);
+
+        namedWindow("Concatenated BinIris 1 - 2 & mask", WINDOW_AUTOSIZE);
+        imshow("Concatenated BinIris 1 - 2 & mask", concatenated);
+        namedWindow("Irises", WINDOW_AUTOSIZE);
+        imshow("Irises", irises);
         waitKey(0);
     }
 }
