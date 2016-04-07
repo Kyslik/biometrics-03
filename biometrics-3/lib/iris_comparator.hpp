@@ -25,13 +25,14 @@ namespace Iris
         Mat mask_;
         int best_shift_ = 0, best_distance_ = INT_MAX;
 
-
         void computeMask();
         int calculateHammingDistance();
-
     public:
+        Comparator() {};
         Comparator(File image_1, File image_2);
+        void setImages(File image_1, File image_2);
         void hammingDistance(int spread = 100);
+        void reset();
         void display();
         inline int getBestShift() {return best_shift_;}
         inline int getBestDistance() {return best_distance_;}

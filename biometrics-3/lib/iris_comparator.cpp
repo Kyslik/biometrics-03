@@ -13,6 +13,17 @@ namespace Iris
 {
     Comparator::Comparator(File image_1, File image_2)
     {
+        setImages(image_1, image_2);
+    }
+
+    void Comparator::reset()
+    {
+        best_shift_ = 0;
+        best_distance_ = INT_MAX;
+    }
+
+    void Comparator::setImages(File image_1, File image_2)
+    {
         i1_ = Iris(image_1);
         i2_ = Iris(image_2);
     }
