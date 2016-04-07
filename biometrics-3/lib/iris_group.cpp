@@ -18,7 +18,6 @@ namespace Iris
     {
         Comparator comparator;
         int viris_size = static_cast<int>(vifile_.size());
-        int compare_count = ((viris_size - 1) * viris_size) / 2;
 
         for (int i = 0; i < viris_size - 1; i++)
         {

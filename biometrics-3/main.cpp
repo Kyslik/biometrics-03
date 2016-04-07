@@ -7,6 +7,7 @@
 //
 
 #include <iostream>
+#include <fstream>
 #include <vector>
 #include <opencv2/opencv.hpp>
 
@@ -20,6 +21,7 @@ int main(int argc, const char * argv[])
     using std::cout;
     using std::endl;
     using std::string;
+    using std::vector;
 
     const cv::String keys =
     "{help h usage ? || print this message }"
@@ -29,7 +31,7 @@ int main(int argc, const char * argv[])
     "{experiment e   || experiment number"
         "\n\t\t\t1 - compare pairs from one class"
         "\n\t\t\t2 - compare pairs from all classes}"
-    "{path p         | ./data | path to data (*.bmp files)}"
+    "{path p         | ./data/ | path to data with trailing slash / (*.bmp files)}"
     ;
 
     cv::CommandLineParser parser(argc, argv, keys);
@@ -70,16 +72,40 @@ int main(int argc, const char * argv[])
         }
     }
 
-    Iris::Group group("./data/", 1);
-    group.compare();
     int experiment_no = parser.get<int>("experiment");
-    experiment_no;
+    string path = parser.get<string>("path");
 
     if (!parser.check())
     {
         parser.printErrors();
         return 0;
     }
+
+    if (experiment_no == 1)
+    {
+        vector<Iris::Group> groups;
+        vector<int> result;
+        for (int i = 1; i <= 10; i++)
+        {
+            groups.push_back(Iris::Group(path, i));
+        }
+
+        for (auto &group : groups)
+        {
+            group.compare();
+
+            for (const auto &res : group.getResult())
+            {
+                result.push_back(res);
+            }
+        }
+
+        std::ofstream outfile("./experiment-1.txt");
+        std::ostream_iterator<int> output_iterator(outfile, "\n");
+        std::copy(result.begin(), result.end(), output_iterator);
+
+    }
+
 
     return 0;
 }

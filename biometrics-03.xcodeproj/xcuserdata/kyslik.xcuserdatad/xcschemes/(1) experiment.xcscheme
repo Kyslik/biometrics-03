@@ -63,7 +63,7 @@
       </BuildableProductRunnable>
       <CommandLineArguments>
          <CommandLineArgument
-            argument = "-e=1 -p=./data"
+            argument = "-e=1 -p=./data/"
             isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>
