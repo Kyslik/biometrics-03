@@ -7,11 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		504D6C9C1CB5749500AF78D6 /* iris_file.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 504D6C9A1CB5749500AF78D6 /* iris_file.cpp */; };
-		504D6CA01CB5980400AF78D6 /* iris_comparator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 504D6C9E1CB5980400AF78D6 /* iris_comparator.cpp */; };
+		504D6CA41CB70ADB00AF78D6 /* iris.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 50DF7E591CB4FF3600E04255 /* iris.cpp */; };
+		504D6CA51CB70ADB00AF78D6 /* iris_file.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 504D6C9A1CB5749500AF78D6 /* iris_file.cpp */; };
+		504D6CA61CB70ADB00AF78D6 /* iris_comparator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 504D6C9E1CB5980400AF78D6 /* iris_comparator.cpp */; };
+		504D6CA71CB70ADB00AF78D6 /* iris_group.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 504D6CA11CB6F39600AF78D6 /* iris_group.cpp */; };
 		50DF7E4C1CB4520000E04255 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 50DF7E4B1CB4520000E04255 /* main.cpp */; };
 		50DF7E531CB458E300E04255 /* data in CopyFiles */ = {isa = PBXBuildFile; fileRef = 50DF7E521CB458C400E04255 /* data */; };
-		50DF7E5B1CB4FF3600E04255 /* iris.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 50DF7E591CB4FF3600E04255 /* iris.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -33,6 +34,8 @@
 		504D6C9D1CB5979900AF78D6 /* shift.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = shift.hpp; sourceTree = "<group>"; };
 		504D6C9E1CB5980400AF78D6 /* iris_comparator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = iris_comparator.cpp; sourceTree = "<group>"; };
 		504D6C9F1CB5980400AF78D6 /* iris_comparator.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = iris_comparator.hpp; sourceTree = "<group>"; };
+		504D6CA11CB6F39600AF78D6 /* iris_group.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = iris_group.cpp; sourceTree = "<group>"; };
+		504D6CA21CB6F39600AF78D6 /* iris_group.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = iris_group.hpp; sourceTree = "<group>"; };
 		50DF7E481CB4520000E04255 /* biometrics-03 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "biometrics-03"; sourceTree = BUILT_PRODUCTS_DIR; };
 		50DF7E4B1CB4520000E04255 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		50DF7E521CB458C400E04255 /* data */ = {isa = PBXFileReference; lastKnownFileType = folder; name = data; path = "biometrics-3/data"; sourceTree = "<group>"; };
@@ -87,6 +90,8 @@
 				504D6C9B1CB5749500AF78D6 /* iris_file.hpp */,
 				504D6C9E1CB5980400AF78D6 /* iris_comparator.cpp */,
 				504D6C9F1CB5980400AF78D6 /* iris_comparator.hpp */,
+				504D6CA11CB6F39600AF78D6 /* iris_group.cpp */,
+				504D6CA21CB6F39600AF78D6 /* iris_group.hpp */,
 			);
 			path = lib;
 			sourceTree = "<group>";
@@ -147,10 +152,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				50DF7E5B1CB4FF3600E04255 /* iris.cpp in Sources */,
+				504D6CA41CB70ADB00AF78D6 /* iris.cpp in Sources */,
+				504D6CA51CB70ADB00AF78D6 /* iris_file.cpp in Sources */,
+				504D6CA61CB70ADB00AF78D6 /* iris_comparator.cpp in Sources */,
+				504D6CA71CB70ADB00AF78D6 /* iris_group.cpp in Sources */,
 				50DF7E4C1CB4520000E04255 /* main.cpp in Sources */,
-				504D6CA01CB5980400AF78D6 /* iris_comparator.cpp in Sources */,
-				504D6C9C1CB5749500AF78D6 /* iris_file.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,6 +245,10 @@
 		50DF7E501CB4520000E04255 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_CPP_EXCEPTIONS = NO;
 				HEADER_SEARCH_PATHS = /usr/local/include;
 				LIBRARY_SEARCH_PATHS = /usr/local/lib;
 				OTHER_LDFLAGS = (
@@ -254,6 +264,10 @@
 		50DF7E511CB4520000E04255 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_CPP_EXCEPTIONS = NO;
 				HEADER_SEARCH_PATHS = /usr/local/include;
 				LIBRARY_SEARCH_PATHS = /usr/local/lib;
 				OTHER_LDFLAGS = (
