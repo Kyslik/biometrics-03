@@ -44,9 +44,11 @@ namespace Iris
 
             fillVIFile();
         }
-        inline bool isValid() {return is_valid_;}
-        inline vector<int> getResult() {return compare_result_;}
+        inline bool isValid() const {return is_valid_;}
+        //const inline VIFile getVIFile() {return vifile_;}
+        inline vector<int> getResult() const {return compare_result_;}
         void compare();
+        void compare(const Group &compare_with);
     };
 
 }

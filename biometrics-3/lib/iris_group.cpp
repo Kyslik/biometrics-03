@@ -21,9 +21,27 @@ namespace Iris
 
         for (int i = 0; i < viris_size - 1; i++)
         {
+            comparator.setImage(vifile_[i], true);
             for (int j = i + 1; j < viris_size; j++)
             {
-                comparator.setImages(vifile_[i], vifile_[j]);
+                comparator.setImage(vifile_[j]);
+                comparator.hammingDistance();
+                compare_result_.push_back(comparator.getBestDistance());
+                comparator.reset();
+            }
+        }
+    }
+
+    void Group::compare(const Group &compare_with)
+    {
+        Comparator comparator;
+
+        for (auto &vifile : vifile_)
+        {
+            comparator.setImage(vifile, true);
+            for (const auto &cvifile : compare_with.vifile_)
+            {
+                comparator.setImage(cvifile);
                 comparator.hammingDistance();
                 compare_result_.push_back(comparator.getBestDistance());
                 comparator.reset();

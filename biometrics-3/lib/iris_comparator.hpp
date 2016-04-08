@@ -31,6 +31,7 @@ namespace Iris
         Comparator() {};
         Comparator(File image_1, File image_2);
         void setImages(File image_1, File image_2);
+        void setImage(File image, bool is_first = false);
         void hammingDistance(int spread = 100);
         void reset();
         void display();

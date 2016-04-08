@@ -28,6 +28,13 @@ namespace Iris
         i2_ = Iris(image_2);
     }
 
+    void Comparator::setImage(File image, bool is_first)
+    {
+        if (is_first) i1_ = Iris(image);
+        else
+            i2_ = Iris(image);
+    }
+
     void Comparator::computeMask()
     {
         mask_ = i1_.getMask() | i2_.getMask();

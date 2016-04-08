@@ -68,7 +68,7 @@ int main(int argc, const char * argv[])
         else
         {
             cout << "pictures to compare were not provided" << endl;
-            return 0;
+            return 3;
         }
     }
 
@@ -78,34 +78,33 @@ int main(int argc, const char * argv[])
     if (!parser.check())
     {
         parser.printErrors();
-        return 0;
+        return 4;
     }
+
+    if (!(experiment_no == 1 || experiment_no == 2))
+        return 5;
+
+    vector<Iris::Group> groups;
+    vector<int> result;
+
+    for (int i = 1; i <= 10; i++)
+        groups.push_back(Iris::Group(path, i));
 
     if (experiment_no == 1)
-    {
-        vector<Iris::Group> groups;
-        vector<int> result;
-        for (int i = 1; i <= 10; i++)
-        {
-            groups.push_back(Iris::Group(path, i));
-        }
-
         for (auto &group : groups)
-        {
             group.compare();
+    else
+        for (int i = 0; i < 9; i++)
+            for (int j = i + 1; j <= 9; j++)
+                groups[i].compare(groups[j]);
 
-            for (const auto &res : group.getResult())
-            {
-                result.push_back(res);
-            }
-        }
+    for (const auto &group : groups)
+        for (const auto &res : group.getResult())
+            result.push_back(res);
 
-        std::ofstream outfile("./experiment-1.txt");
-        std::ostream_iterator<int> output_iterator(outfile, "\n");
-        std::copy(result.begin(), result.end(), output_iterator);
-
-    }
-
+    std::ofstream outfile("./experiment-" + std::to_string(experiment_no) + ".txt");
+    std::ostream_iterator<int> output_iterator(outfile, "\n");
+    std::copy(result.begin(), result.end(), output_iterator);
 
     return 0;
 }
